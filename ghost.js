@@ -17,7 +17,7 @@ class Ghost {
         this.width = width;
         this.height = height;
         this.speed = speed;
-        this.direction = DIRECTION_RIGHT;
+        this.direction = Direction_Right;
         this.imageX = imageX;
         this.imageY = imageY;
         this.imageHeight = imageHeight;
@@ -131,16 +131,16 @@ class Ghost {
         }
         if (
             this.getMapY() != this.getMapYRightSide() &&
-            (this.direction == DIRECTION_LEFT ||
-                this.direction == DIRECTION_RIGHT)
+            (this.direction == Direction_left ||
+                this.direction == Direction_Right)
         ) {
-            this.direction = DIRECTION_UP;
+            this.direction = Direction_up;
         }
         if (
             this.getMapX() != this.getMapXRightSide() &&
-            this.direction == DIRECTION_UP
+            this.direction == Direction_up
         ) {
-            this.direction = DIRECTION_LEFT;
+            this.direction = Direction_left;
         }
         this.moveForwards();
         if (this.checkCollisions()) {
@@ -194,7 +194,7 @@ class Ghost {
             mp[poped.y][poped.x - 1] != 1
         ) {
             let tempMoves = poped.moves.slice();
-            tempMoves.push(DIRECTION_LEFT);
+            tempMoves.push(Direction_left);
             queue.push({ x: poped.x - 1, y: poped.y, moves: tempMoves });
         }
         if (
@@ -203,7 +203,7 @@ class Ghost {
             mp[poped.y][poped.x + 1] != 1
         ) {
             let tempMoves = poped.moves.slice();
-            tempMoves.push(DIRECTION_RIGHT);
+            tempMoves.push(Direction_Right);
             queue.push({ x: poped.x + 1, y: poped.y, moves: tempMoves });
         }
         if (
@@ -212,7 +212,7 @@ class Ghost {
             mp[poped.y - 1][poped.x] != 1
         ) {
             let tempMoves = poped.moves.slice();
-            tempMoves.push(DIRECTION_UP);
+            tempMoves.push(Direction_up);
             queue.push({ x: poped.x, y: poped.y - 1, moves: tempMoves });
         }
         if (
@@ -221,7 +221,7 @@ class Ghost {
             mp[poped.y + 1][poped.x] != 1
         ) {
             let tempMoves = poped.moves.slice();
-            tempMoves.push(DIRECTION_BOTTOM);
+            tempMoves.push(Direction_down);
             queue.push({ x: poped.x, y: poped.y + 1, moves: tempMoves });
         }
         return queue;

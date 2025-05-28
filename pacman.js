@@ -49,16 +49,16 @@ class Pacman {
 
     moveBackwards() {
         switch (this.direction) {
-            case DIRECTION_RIGHT: // Right
+            case Direction_Right: // Right
                 this.x -= this.speed;
                 break;
-            case DIRECTION_UP: // Up
+            case Direction_up: // Up
                 this.y += this.speed;
                 break;
-            case DIRECTION_LEFT: // Left
+            case Direction_left: // Left
                 this.x += this.speed;
                 break;
-            case DIRECTION_BOTTOM: // Bottom
+            case Direction_down: // Bottom
                 this.y -= this.speed;
                 break;
         }
@@ -66,16 +66,16 @@ class Pacman {
 
     moveForwards() {
         switch (this.direction) {
-            case DIRECTION_RIGHT: // Right
+            case Direction_Right: // Right
                 this.x += this.speed;
                 break;
-            case DIRECTION_UP: // Up
+            case Direction_up: // Up
                 this.y -= this.speed;
                 break;
-            case DIRECTION_LEFT: // Left
+            case Direction_left: // Left
                 this.x -= this.speed;
                 break;
-            case DIRECTION_BOTTOM: // Bottom
+            case Direction_down: // Bottom
                 this.y += this.speed;
                 break;
         }
@@ -102,18 +102,7 @@ class Pacman {
         return isCollided;
     }
 
-   /* checkGhostCollision(ghosts) {
-        for (let i = 0; i < ghosts.length; i++) {
-            let ghost = ghosts[i];
-            if (
-                ghost.getMapX() == this.getMapX() &&
-                ghost.getMapY() == this.getMapY()
-            ) {
-                return true;
-            }
-        }
-        return false;
-    }*/
+  
    checkGhostCollision(ghosts) {
     for (let ghost of ghosts) {
         if (
